@@ -61,7 +61,7 @@ body {
                         <div class="input-field">
                         <input id="search" type="search" required>
                         <label onclick="buscar()" class="label-icon" for="search"><i class="material-icons">search</i></label>
-                        <i class="material-icons" onclick="document.getElementById('principal').innerHTML = ''">close</i>
+                        <i class="material-icons" onclick="borrar()">close</i>
                         </div>
                  
                 </div>
@@ -136,7 +136,10 @@ function hideKeyboard(element) {
 	
 }
 
-
+function borrar(){
+	document.getElementById('principal').innerHTML = ''
+	document.getElementById('search').value = ''
+}
 
 </script>
 
