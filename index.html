@@ -102,12 +102,12 @@ body {
 			   var busqueda = document.getElementById('search').value 
 			   hideKeyboard($('input'));
         var apicall = $.get( "https://es.wikipedia.org/w/api.php?action=opensearch&format=json&search="+busqueda+"&origin=*", function( data ) {
- 
+
                                 var principal = document.getElementById('principal')
                                 principal.innerHTML = "";
 								if (data.length != undefined) {
 														if (data[1].length != 0) {
-                                    for(i = 0; i < 10; i++) { 
+                                    for(i = 0; i < data[1].length; i++) { 
 
                 var tarjeta = document.createElement('div');
                 tarjeta.innerHTML = '<div class="card" style="margin-top: 30px; font-size: 0.85em; text-align: left;"><div class="card-content"><span class="card-title">'+data[1][i]+'</span><p>'+data[2][i]+'</p></div><div class="card-action"><a href='+data[3][i]+">Lee el artículo</a></div></div>"
@@ -133,6 +133,7 @@ function hideKeyboard(element) {
         element.removeAttr('readonly');
         element.removeAttr('disabled');
     }, 100);
+	
 }
 
 
